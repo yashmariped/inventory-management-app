@@ -1,8 +1,9 @@
 // firebase.js
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-// import { getAnalytics } from 'firebase/analytics'; // Uncomment if you need Analytics
+import { getStorage } from 'firebase/storage';
 
+// Firebase configuration using original data
 const firebaseConfig = {
   apiKey: "AIzaSyBDSFZboWLRM-yWA1JdTP4BKSj-TA3nbKo",
   authDomain: "inventory-management-app-f9a58.firebaseapp.com",
@@ -15,7 +16,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app); // Uncomment if you need Analytics
-const firestore = getFirestore(app);
 
-export { firestore };
+// Initialize Firestore and Storage
+const firestore = getFirestore(app);
+const storage = getStorage(app);
+
+export { firestore, storage };
